@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // // 1...Chúng ta khai báo hàm tính tổng của 2 số a và b như sau: ---------------
+        // function additionFunction(a, b) {
+        // return a + b;
+        // }
+        // // Sau đó, chúng ta gọi hàm này như sau:
+        // let result = additionFunction(1, 3);
+        // console.log(result); //in ra console.log
+
+        // : Chúng ta khai báo một hàm trả về diện tích của hình chữ nhật như sau: --------------
+        // function getRectangleArea(width, length) {
+        // return width * length;
+        // }
+        // let result = getRectangleArea(10, 5);
+        // console.log(result);
+
+        // ĐỐi SỐ của Hàm -----------------------------------------------------------------------------------
+
+        // function myFunction(){
+        // let firstArg = arguments[0];
+        // let secondArg = arguments[1];
+        // }
+
+        // Cách tốt hơn là bạn lấy ra độ dài của đối tượng arguments và chạy vòng lặp qua từng đối số như
+        // sau:
+
+
+        // Sau đây là ví dụ hoàn chỉnh hơn minh họa tác dụng của việc sử dụng đối tượng arguments.-------
+
+        // <script type="text/javascript">
+        // function myFunction() {
+        // let firstArg = arguments[0];
+        // let secondArg = arguments[1];
+        // alert("firstArg is: " + firstArg);
+        // alert("secondArg is: " + secondArg);
+        // }
+        // myFunction("hello", "world");
+
+        // Ví dụ về giá trị trả về đơn giản ----------------------------------
+
+        // function multiplyNums(x) {
+        //     return x * 2;
+        // }
+        // let theNumber = 10;
+        // let result = multiplyNums(theNumber);
+        // alert(result);
+
+
+
+        // function orderFruit() {
+        //     let total = 0;
+        //     // Call another function to place order
+        //     return total;
+        // }
+        // let result = orderFruit();
+        // alert("The total is " + result);
+
+        // Bao đóng – Closure --------------------------------------------------
+        // function myFunction() {
+        //     let myNum = 10;
+        //     function showNum() {
+        //         alert(myNum);
+        //     }
+        //     return showNum();
+        // }
+        // let callFunc = myFunction();
+        // myFunction();
+
+        // Coding Convention làm việc với hàm  -------------------------------------------------
+
+        // Quy tắc đặt tên (naming convention)  ----------
+        // Tên lớp thì đặt theo PascalCase
+        // ● Tên biến, tên hàm đặt theo camelCase hoặc snake_case
+        // ● Hằng số đặt theo UPPER_CASE, ví dụ: CLICK_COUNTER
+        // ● Tên biến, tên lớp thường là danh từ, cụm danh từ hoặc tính từ: UserModel, userName,
+        //         downloadCounter, isDownloaded
+        // ● Tên hàm thường bắt đầu bằng động từ: getUserName, setUserModel,
+        //         increaseDownloadCounter
+        // ● Tên thì phải có nghĩa, KHÔNG ĐƯỢC đặt tên kiểu viết tắt(dlCounter, uName, idl, a, a1,
+        //             doFA)
+        // ● Tránh đặt những tên quá chung chung, tối nghĩa: top, best, doIncrease, getAll
+
+        //Quy tắc về số lượng ------------------------
+
+        // ● Hàm không nên quá 30 dòng(Martin Lippert - rule 30)
+        // ● Lớp không nên vượt quá 500 dòng(Clean Code)
+        // ● Một hàm không được vượt quá 5 tham số, (nên giữ <= 3) (Clean Code)
+        // ● Một hàm chỉ làm duy nhất 1 việc, trong trường hợp chính đáng, làm 2 việc cũng được
+        //     phép, tuy nhiên tên hàm phải nói rõ điều này, vd:
+        //     increaseDownloadCounterAndSaveToDatabase
+        // ● Khi khai báo biến, một dòng chỉ chứa một biến
+        // ● Một dòng không nên dài quá 80 ký tự(Oracle)
+        // ● Các câu lệnh lồng nhau tối đa 4 cấp
+
+        // Quy tắc xuống hàng ----------------------
+
+        // Theo Oracle
+        // ● Nếu có dấu phẩy thì xuống hàng sau dấu phẩy(,)
+        // ● Xuống hàng trước toán tử +, - …
+        // ● Nếu có nhiều cấp lồng nhau, thì xuống hàng theo từng cấp
+        // ● Dòng xuống hàng mới thì nên bắt đầu ở cùng cột với đoạn lệnh cùng cấp ở trên.
+
+
+        //     Comment --------------------------
+        // ● Hạn chế dùng comment để giải thích code, thay vào đó hãy cải thiện đoạn code.
+        // ● Chỉ nên dùng comment trong trường hợp viết documentation cho thư viện, thông tin
+        // đính kèm cho class…
+
+
+        function turnOn(machine) {
+            machine.isOn = true;
+        }
+        let computer = {
+            isOn: false
+        };
+        turnOn(computer);
+        console.log(computer.isOn);
+
+
+
+
+
+
+
+
+
+
+
+    </script>
+</body>
+
+</html>

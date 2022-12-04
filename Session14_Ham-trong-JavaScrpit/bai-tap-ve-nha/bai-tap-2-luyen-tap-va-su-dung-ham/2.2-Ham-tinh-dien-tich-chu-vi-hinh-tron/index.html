@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h3>Tinh dien tich va chu vi hinh tron</h3>
+    <label for="">Nhap vao ban kinh</label>
+    <input id="radius" placeholder="Input radius" type="number">
+    <!-- tao su kien onlcik khai bao ham -->
+    <button onclick="nhapBanKinh()">Nhap va tinh toan</button>
+    <!-- chu va noi in ra ket qua -->
+    <p>Dien tich hinh tron la: <span id="circumference">0</span> </p>
+    <p>Chu vi hinh tron la: <span id="acreage">0</span> </p>
+
+    <script>
+        const PI = 3.14;
+        function nhapBanKinh() {
+            var inputNum = document.getElementById("radius").value;
+            var dienTichHinhTron = PI * inputNum * inputNum;
+            document.getElementById("circumference").innerHTML = dienTichHinhTron;
+            var chuViHinhTron = 2 * PI * inputNum;
+            document.getElementById("acreage").innerHTML = chuViHinhTron;
+        }
+    </script>
+</body>
+
+</html>

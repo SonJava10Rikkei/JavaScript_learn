@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        let dodai = parseInt(prompt("Nhap do dai cua mang"));
+        let soNguyen = new Array(dodai);
+        for (var i = 0; i < soNguyen.length; i++) {
+            soNguyen[i] = prompt("Nhap phan tu cua mang tai vi tri " + i);
+        }
+        console.log(soNguyen.length);
+
+        let soCanTimV = prompt("Nhap so can tim");
+        let check = false;
+
+        for (var i = 0; i < soNguyen.length; i++) {
+            if (soCanTimV === soNguyen[i]) {
+                check = true;
+            }
+        }
+        console.log(check);
+        if (check) {
+            document.write(" V is in the array")
+        } else {
+            document.write(" V is not in the array")
+        }
+
+
+
+    </script>
+</body>
+
+</html>

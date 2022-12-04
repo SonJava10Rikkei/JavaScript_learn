@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var dodai = parseInt(prompt("Nhap do dai cua mang"));
+        var soNguyen = new Array(dodai);
+        for (let i = 0; i < soNguyen.length; i++) {
+            soNguyen[i] = prompt("Nhap phan tu cua mang tai vi tri " + i);
+        }
+        console.log(soNguyen.length);
+        let soCanTimV = prompt('Nhap so V can tim');
+        let checkAndRemoveSoNguyen;
+        for (let i = 0; i < soNguyen.length; i++) {
+            if (soCanTimV == soNguyen[i]) {
+                checkAndRemoveSoNguyen = soCanTimV;
+                soCanTimV_index = i;
+
+            }
+
+        }
+        if (checkAndRemoveSoNguyen) {
+            // cach 1 chi xoa vi tri so can tim
+            soNguyen.splice(soCanTimV_index, 1);
+            // gan 0 vao vi tri cuoi cung cua mang
+            soNguyen.push(0);
+            console.log(soNguyen);
+            document.write(soNguyen);
+
+
+            // c2 xoa dung ten (gia tri cua so can tim)
+            // const soNguyenCuoiCung = soNguyen.filter(item => item != soCanTimV);
+            // document.write("Mang so nguyen dau tien la " + soNguyen + "<br/>");
+            // document.write("Tim thay V bang " + soCanTimV + " co nam trong mang va xoa tat ca cac phan tu bang V" + "<br/>");
+
+            // document.write("Con mang sau khi da xoa la " + soNguyenCuoiCung);
+        } else {
+            document.write(" V is not in the array")
+        }
+
+
+
+
+
+
+        // var dodai = parseInt(prompt("Nhap do dai cua mang"));
+        // var soNguyen = new Array(dodai);
+        // for (let i = 0; i < soNguyen.length; i++) {
+        //     soNguyen[i] = prompt("Nhap phan tu cua mang tai vi tri " + i);
+        // }
+        // console.log(soNguyen.length);
+        // let soCanTimV = prompt('Nhap so V can tim');
+        // let checkAndRemoveSoNguyen;
+        // for (let i = 0; i < soNguyen.length; i++) {
+        //     if (soCanTimV == soNguyen[i]) {
+        //         checkAndRemoveSoNguyen = soCanTimV;
+        //         soCanTimV_index = i;
+        //     }
+
+        // }
+        // if (checkAndRemoveSoNguyen) {
+        //     const soNguyenCuoiCung = soNguyen.filter(item => item != soCanTimV);
+        //     document.write("Mang so nguyen dau tien la " + soNguyen + "<br/>");
+        //     document.write("Tim thay V bang " + soCanTimV + " co nam trong mang va xoa tat ca cac phan tu bang V" + "<br/>");
+
+        //     document.write("Con mang sau khi da xoa la " + soNguyenCuoiCung);
+        // } else {
+        //     document.write(" V is not in the array")
+        // }
+
+    </script>
+</body>
+
+</html>

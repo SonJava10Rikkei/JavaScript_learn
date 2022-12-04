@@ -1,0 +1,34 @@
+*{
+    margin: 0px;    
+    box-sizing: border-box;
+    font-family:'Times New Roman', Times, serif;
+    font-size: 13px;
+    color: rgba(255, 251, 251, 0.937);
+}
+.container {
+    background-image: url(http://www.elle.vn/wp-content/uploads/2017/07/25/hinh-anh-dep-1.jpg);
+    width: 100%;
+    height: 100vh;
+    object-fit:cover;
+}
+.lesson-1 {
+background-color: aliceblue;
+width: 370px;
+height: 90px;
+padding: 20px;
+border-radius: 10px;
+color: #000;
+
+}
+
+.contents {
+    width: 300px;
+    margin-left: 30%;
+    margin-top: 20%;
+}
+
+#inputbox {
+    color: #000;
+    margin-top: 20px;
+    margin-left:41%;
+}

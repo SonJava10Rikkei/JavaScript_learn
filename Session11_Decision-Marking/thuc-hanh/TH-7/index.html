@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <img
+      src="/thuc-hanh/TH-7/img/Bat-Cuoi-Truoc-Nhung-07.jpg"
+      alt=""
+      style="
+        position: relative;
+        left: 0px;
+        top: 0px;
+        width: 120px;
+        height: 100px;
+      "
+      id="picture"
+    />
+    <script>
+      function right() {
+        let picture = document.getElementById("picture");
+        picture.style.left = parseInt(picture.style.left) + 5 + "px";
+      }
+      function down() {
+        let picture = document.getElementById("picture");
+        picture.style.top = parseInt(picture.style.top) + 5 + "px";
+      }
+      function left() {
+        let picture = document.getElementById("picture");
+        picture.style.left = parseInt(picture.style.left) - 5 + "px";
+      }
+      function up() {
+        let picture = document.getElementById("picture");
+        picture.style.top = parseInt(picture.style.top) - 5 + "px";
+      }
+      document.addEventListener("keydown", function (event) {
+        if (event.key == "ArrowRight") {
+          right();
+        } else if (event.key == "ArrowUp") {
+          up();
+        } else if (event.key == "ArrowDown") {
+          down();
+        } else if (event.key == "ArrowLeft") {
+          left();
+        }
+      });
+    </script>
+  </body>
+</html>

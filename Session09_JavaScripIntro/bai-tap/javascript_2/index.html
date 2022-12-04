@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Nhap 3 so thuoc N bat ki, tim so lon nhat?</h1>
+
+    <script>
+        let a =prompt("Vui long nhap so thu nhat", "0");
+        let b = prompt("Vui long nhap so thu hai" , "0");
+        let c = prompt("Vui long nhap so thu ba", "0");
+        document.write("Trong 3 so " + a+";"+b+" va "+c+" thi : ");
+        a = parseInt (a);
+        b = parseInt(b);
+        c = parseInt(c);
+
+if (a>b){
+    if (a>c){ 
+        document.write("<b>" + a + "</b>" + " la so lon nhat");
+    }
+}
+    if (a < b) {
+        if (b > c) {
+            document.write("<b>" + b + "</b>" + " la so lon nhat");
+        }
+    }
+    if (a < b) {
+            if (c > b) {
+                document.write("<b>" + c + "</b>" + " la so lon nhat");
+            }
+        }
+
+
+    </script>
+</body>
+</html>

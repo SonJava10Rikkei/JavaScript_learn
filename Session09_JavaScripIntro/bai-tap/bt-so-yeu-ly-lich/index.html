@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        .all {
+            width: 710px;
+            height: 550px;
+            background-image: linear-gradient(0,rgba(10, 34, 245, 0.685),rgba(241, 4, 221, 0.637));
+            padding-left: 50px;
+            padding-top: 30px;
+            border-radius: 50px;
+            margin-left: 300px;
+            margin-top: 30px;
+        }
+        .all h2 {
+            padding-top: 20px;
+            padding-bottom: 15px;
+            font-size: 25px;
+        }
+
+        .all p{
+            padding-top: 5px;
+            padding-bottom: 5px;
+            margin-left: 30px ;
+        }
+
+        h1 {
+            margin-top: 0px;
+        }
+        header {
+            width: 600px;
+            padding: 10px;
+            background-color: rgba(167, 178, 224, 0.349);
+            color: rgb(177, 40, 40);
+            text-align: center;
+            border-radius: 10px;
+            
+        }
+        h3 {
+            margin-top: 10px;
+            margin-left:280px ;
+            
+            
+        }
+        hr {
+            margin-right: 55px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="all">
+        <header>
+            <h1>Sơ yếu lý lịch</h1>
+        </header>
+        <div>
+            <h2>--Thông tin cá nhân--</h2>
+            <p>Họ và tên : <b><span id="name"></span></b> </p>
+            <p>Tuổi : <u><span id="age"></span></u> </p>
+            <p>Giới tính : <span id="gender"></span> </p>
+            <hr>
+            <h2>--Trình độ học vấn--</h2>
+            <p>Văn hóa :<span id="culture"></span> </p>
+            <p>Học vấn : <span id="educational"></span> </p>
+            <hr>
+            <h2>--Nghề Nghiệp--</h2>
+            <p>Công việc 1 : <span id="work"></span> </p>
+            <p>Công việc 2 : <span id="job"></span> </p>
+            <h3><button style="width:50px ; height: 30px;" onclick="myfonction()">NHẬP</button></h3>
+            <script>
+                function myfonction(){
+                    var lastname = prompt ("Họ tên bạn là gì?")
+                    document.getElementById("name").innerHTML=lastname
+                    var age = prompt("Năm nay bạn bao nhiêu tuổi?")
+                    document.getElementById("age").innerHTML = age
+                    var gender = prompt("Giới tính của bạn là?")
+                    document.getElementById("gender").innerHTML = gender
+                    
+                    var culture = prompt("Trình độ văn hóa")
+                    document.getElementById("culture").innerHTML = culture
+                    var educational = prompt("Trình độ học vấn")
+                    document.getElementById("educational").innerHTML = educational
+
+                    var work = prompt("Công việc của bạn là gì?")
+                    document.getElementById("work").innerHTML = work
+                    var job = prompt("Bạn đang làm nghề gì?")
+                    document.getElementById("job").innerHTML = job
+
+                }
+            </script>
+        </div>
+    </div>
+    <div>
+
+    </div>
+</body>
+
+</html>

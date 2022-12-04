@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <script>
+      //lấy giá trị từ người dùng
+      let a = prompt("Vui long nhap so thu nhat", "0");
+      let b = prompt("Vui long nhap so thu hai", "0");
+      let z = a % b;
+      //đổi sang kiểu Number
+      a = parseInt(a);
+      b = parseInt(b);
+      //tính toán và in kết quả ra trình duyệt
+      document.write(
+        "Thương hai số " + a + " và " + b + " là " + a / b + "<br/>"
+      );
+      if (b == 0) {
+        alert("không chia được");
+      }
+      if (z == 0) {
+        alert("a là bội số của b true");
+      } else {
+        alert("a là bội số của b false");
+      }
+    </script>
+  </body>
+</html>

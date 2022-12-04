@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sap xep mang</title>
+</head>
+
+<body>
+    <script>
+        var tenNumber = [11, 100, 32, -45, 99, 403, 83, 57, 74, 69]
+        document.write("- 10 so nguyen ban dau : " + tenNumber + "<br/>");
+
+        tenNumber.sort(
+            function (a, b) { return b - a; }
+        );
+        document.write("=> sap xep mang 10 so nguyen theo thu tu giam dan " + tenNumber);
+    </script>
+</body>
+
+</html>

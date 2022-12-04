@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        var tenNumber = [1, 2, 3, 4, 10, 15, 21, 23, 34, 45]
+        var count = 0;
+        for (let i = 0; i < tenNumber.length; i++) {
+            if (tenNumber[i] >= 10) {
+                count++;
+                document.write(tenNumber[i] + "<br/>");
+
+            }
+
+        }
+        document.write("Tổng cộng có " + count + " số nguyên lớn hơn hoặc bằng 10.");
+
+
+    </script>
+</body>
+
+</html>

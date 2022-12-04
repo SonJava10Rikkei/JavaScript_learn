@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <label>Nhap so</label>
+    <input id="number" type="text" />
+    <select id="selectValue">
+        <option value="1">Feet</option>
+        <option value="2">Meters</option>
+    </select>
+    <button onclick="nhanNhapKetQua()">Nhap ket qua</button>
+    <div id="ketqua"></div>
+    <script>
+        function nhanNhapKetQua() {
+            let inputNum = document.getElementById("number").value;
+            let inputSlt = document.getElementById("selectValue").value;
+            let feet;
+            let meters;
+            if (inputSlt == 1) {
+                meters = 0.305 * inputNum;
+                document.getElementById("ketqua").innerHTML = meters;
+            } else {
+                feet = 3.279 * inputNum;
+                document.getElementById("ketqua").innerHTML = feet;
+            }
+        }
+    </script>
+</body>
+
+</html>

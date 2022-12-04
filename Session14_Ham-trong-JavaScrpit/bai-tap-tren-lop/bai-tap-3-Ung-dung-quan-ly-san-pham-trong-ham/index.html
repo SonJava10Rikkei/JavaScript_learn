@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>UngDungQuanLySanPham</title>
+    <style>
+        .container {
+            width: 500px;
+            margin: 0 auto;
+            /* background-color: #eee; */
+            padding: 12px
+        }
+
+        .add {
+            background-color: #ddd;
+            width: 70%;
+            text-align: center;
+            padding: 8px;
+        }
+
+        .save {
+            background-color: #ddd;
+            width: 70%;
+            text-align: center;
+            padding: 8px;
+        }
+
+        input {
+            width: 70%;
+            height: 24px;
+            border: none;
+            text-align: center
+        }
+
+        button {
+            background-color: rgb(9, 176, 9);
+            color: #fff;
+            border: 2px solid rgb(137, 136, 136);
+            width: 60px;
+            height: 30px;
+            border-radius: 4px;
+        }
+
+        button:hover {
+            cursor: pointer;
+            background-color: rgb(6, 105, 6);
+
+        }
+
+        table tr:nth-child(odd) {
+            background-color: #ddd;
+        }
+
+        table th {
+            background-color: #fff;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h2>Add New Product</h2>
+        <div class="add">
+            <input type="text" placeholder="New product" id="addProduct" />
+            <button onclick="addProduct()">Add</button>
+        </div>
+        <br>
+        <div class="save">
+            <input type="text" placeholder="Edit product" id="editProduct" />
+            <button onclick="save()">Save</button>
+        </div>
+        <br>
+        <h2>Display All Product</h2>
+        <div id="result"></div>
+    </div>
+</body>
+
+<script>
+    let arrayProduct = ["Sony Xperia", "Samsung Galaxy", "Nokia 6", "Xiaomi Redmi Note 4", "Apple iPhone 6S"];
+
+    //////////     HÀM TẠO BẢNG       ////////////
+    function displayProduct() {                                     //Tạo bảng sản phẩm
+        let productTable = ' <table border="0"  cellspacing="0" cellpadding="20">'
+            + '<tr>'
+            + '<th>STT</th>'                                         //Tạo tên so thu tu sản phẩm
+            + '<th>Product Name</th>'                               //Tạo Cột tên sản phẩm
+            + '<th colspan="2">Action</th>'                         //Tạo Cột chưa nút chia 2 cai thanh 1 o
+            + '<th class="count" style="color:red">' + arrayProduct.length + ' Product</th>' //Tạo Cột số lượng sản phẩm
+            + '</tr>'
+
+        for (let i = 0; i < arrayProduct.length; i++) {
+            productTable += "<tr>"
+                + "<td>" + [i + 1] + "</td>"                //Tạo tên so thu tu sản phẩm
+                + "<td>" + arrayProduct[i] + "</td>"                //Tạo tên sản phẩm
+                + "<td> <button class='btn-edit' onclick='editProduct(" + i + ")'> Edit </button>" + "</td>" //Tạo nút sửa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
+                + "<td> <button class='btn-delete' onclick='deleteProduct(" + i + ")'> Delete </button>" + "</td>" //Tạo nút xóa (số nút bằng số lượng sản phẩm). Sự kiện onclick được truyền vào đối số(i) là vị trí của phần tử trong mảng.
+                + "</tr>"
+        }
+        productTable += `</table>`
+
+        document.getElementById("result").innerHTML = productTable;// Hiển thị bảng
+    }
+    displayProduct();//Gọi lại hàm để chạy hàm
+
+
+    //////////     HÀM THÊM SẢN PHẨM VÀO BẢNG       ////////////
+    function addProduct() {
+        let valueAdd = document.getElementById("addProduct").value; //Gán biến bằng giá trị nhập vào của ô input thêm sản phẩm
+        arrayProduct.push(valueAdd);                                // Sử dụng push để thêm sản phẩm mới vào cuối mảng sản phẩm đã có
+
+        document.getElementById("addProduct").value = "";           // Sau khi thêm sản phẩm ô input rỗng
+        displayProduct();                                           //Vẽ lại bảng sau khi đã thêm sản phẩm (du lieu moi)
+    }
+
+
+    //////////     HÀM XÓA SẢN PHẨM      ////////////
+    function deleteProduct(index) {
+        if (confirm("Bạn chắc chắn muốn xóa: " + arrayProduct[index])) {//Nếu nhấn oke ở nút confirm thì mới cho xóa
+            arrayProduct.splice(index, 1);                              // Dùng hàm splice để xóa sản phẩm ở hàng tương ứng với nút delete
+            displayProduct();                                           //Vẽ lại bảng sau khi đã xóa sản phẩm
+        }
+    }
+
+    //////////    HÀM SỬA SẢN PHẨM     ////////////
+    var value = "";                                                           //Đặt biến để lưu vị trí của sản phẩm khi chọn nút edit tương ứng
+    function editProduct(index) {
+        document.getElementById("editProduct").value = arrayProduct[index]; //gán giá trị ô input edit bằng phần tử thứ i tương ứng trong mảng
+        value = index;                                                     // gán biến value bằng vị trí của phần tử trong mảng
+    }
+
+
+
+    //////////    HÀM LƯU SẢN PHẨM SAU KHI ĐÃ SỬA     ////////////
+    function save() {
+        let result = document.getElementById("editProduct").value;
+        arrayProduct[value] = result;                                   //Giá trị ô input edit bằng phần tử thứ value đã được chọn ở trên
+
+        document.getElementById("editProduct").value = "";
+        displayProduct();                                               //Vẽ lại bảng sau khi đã sửa sản phẩm
+    }
+
+</script>
+
+</html>

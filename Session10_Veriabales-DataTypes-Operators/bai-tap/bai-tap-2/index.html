@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="/bai-tap/bai-tap-2/main.css">
+</head>
+
+<body>
+    <div class="all">
+        <div class="form-tien">
+            <form action="">
+                <label for="">Amount</label>
+                <input type="text" id="dauvao">
+
+                <label for="">From Currency</label>
+                <select name="" id="select1">
+                    <option value="a">VND</option>
+                    <option value="b">USD</option>
+                </select>
+
+                <label for="">To Currency</label>
+                <select name="" id="select2">
+                    <option value="a">VND</option>
+                    <option value="b">USD</option>
+                </select>
+            </form>
+
+            <button onclick="lamgido()">Convert</button>
+            </div>
+<div>
+            <p>Result:</p>
+            <p id="demo"></p>
+            </div>
+        
+    </div>
+    <script>
+        function lamgido() {
+            let giatrivao = document.getElementById('dauvao').value;
+            let select1 = document.getElementById('select1').value;
+            let select2 = document.getElementById('select2').value;
+
+            if (select1 == select2) {
+                // alert(giatrivao);
+                document.getElementById("demo").innerHTML = giatrivao;
+            }
+
+            if (select1 == "a" && select2 == "b") {
+                // alert(giatrivao/24000);
+                document.getElementById("demo").innerHTML = giatrivao / 24000;
+            }
+
+            if (select1 == "b" && select2 == "a") {
+                // alert(giatrivao*24000);
+                document.getElementById("demo").innerHTML = giatrivao * 24000;
+
+            }
+        }
+
+    </script>
+
+</body>
+
+</html>

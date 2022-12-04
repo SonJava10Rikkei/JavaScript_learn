@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+
+    <p id="total"></p>
+    <p id="average"></p>
+
+    <script>
+        // Khai báo biến và lấy giá trị người dùng
+
+        let a = prompt("Vui lòng nhập điểm môn Vật Lý");
+        let b = prompt("Vui lòng nhập điểm môn Hóa Học");
+        let c = prompt("Vui lòng nhập điểm môn Sinh Học");
+      
+        //đổi sang kiểu Number
+        a = parseInt(a);
+        b = parseInt(b);
+        c = parseInt(c);
+        //tính toán và hiển thị
+         let t = a + b + c;
+        document.getElementById("total").innerHTML = "Tổng điểm 3 môn là: " + t;
+        document.getElementById("average").innerHTML = "Trung bình điểm 3 môn là: " + t / 3;
+
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đổi từ chữ hoa sang thường</title>
+</head>
+
+<body>
+    <script>
+
+        // Cách 1: --------------------------------
+
+        // let strFox = "TRuonG MiNh ThU";
+        // console.log("before:" + strFox);
+
+        // var strFoxSp = strFox.split(" ");
+        // let array = [];
+
+        // for (const strFoxSpKey of strFoxSp) {
+        //     var tu = strFoxSpKey.split("");
+        //     for (const i in tu) {
+        //         if (i == 0) {
+        //             tu[i] = tu[i].toLowerCase();
+        //         } else {
+        //             tu[i] = tu[i].toUpperCase();
+        //         }
+        //     }
+        //     array.push(tu.join(""));
+        // }
+
+        //Cách 2: ----------------------------------
+        // console.log("after:" + array.join(" "));
+        // let test = "xin Chào Các bạn"; //Xin chao cac Ban.
+        // loai 1 
+        /* let result= test.split("");
+        let array=[];
+        console.log(result);
+        for (let i = 0; i < result.length; i++) {
+          if(result[i]>"a"){
+              array.push(result[i].toUpperCase());
+          }else{
+              array.push(result[i].toLowerCase());
+          }
+        }
+        console.log(array); */
+
+        //loai 2:
+        let test = "xin Chào Các bạn";
+        let result = test.split(" ");
+        console.log(result);
+        let str = "";
+        for (let i = 0; i < result.length; i++) {
+            console.log(result[i].split(""));
+            let check = result[i].split("");
+            if (check[0] > "a") {
+                check[0] = check[0].toUpperCase();
+                console.log(check, "111");
+                str += check.join("") + " "
+            } else {
+                check[0] = check[0].toLocaleLowerCase();
+                str += check.join("") + " "
+
+            }
+
+
+        }
+        console.log(str, "11111111");
+
+    </script>
+</body>
+
+</html>

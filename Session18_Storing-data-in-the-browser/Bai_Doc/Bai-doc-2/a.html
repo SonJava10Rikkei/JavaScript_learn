@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>a</title>
+  </head>
+  <body></body>
+  <script>
+    // ///////////  Lưu trữ domain javascript.info vào trình duyệt của người dùng //////////////
+
+    //   /////////  1.localStorage Object ////////
+
+    // if (typeof Storage !== "undefined") {
+    //   var domain = "javascript.info";
+    //   localStorage.setItem("domain", domain);
+    // } else {
+    //   document.write("Trinh duyet cua ban khong ho tro localStorage");
+    // }
+
+    //   /////////  2.sessionStorage Object ////////
+
+    if (typeof Storage !== "undefined") {
+      sessionStorage.domain = "javascript.info";
+    } else {
+      document.write("Trình duyệt của bạn không hỗ trợ local storage");
+    }
+  </script>
+</html>

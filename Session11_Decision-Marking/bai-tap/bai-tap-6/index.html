@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+</head>
+
+<body>
+    <input id="good" min="0" max="5" type="range" onclick="changeGood()"><br>
+    <input id="cheap" min="0" max="5" type="range" onclick="changeCheap()"><br>
+    <input id="fast" min="0" max="5" type="range" onclick="changeFast()"><br>
+
+    <script>
+        //goi bien va gia tri cua no
+        let good = false;
+        let cheap = false;
+        let fast = false;
+
+        // xet ham good sau khi tao su kien onclick
+        // ngon va khongg ngon:
+        // neu ngon thi max = 5
+        // neu ngon khi cheap va fast bang 0
+        // Ngoai ra khong ngon thi max = 0
+        // in ra valua = 0
+        function changeGood() {
+            good = !good
+            if (good) {
+                document.getElementById('good').value = 5
+                if (cheap && fast) {
+                    document.getElementById('fast').value = 0;
+                    fast = false;
+                }
+            } else {
+                document.getElementById('good').value = 0
+            }
+            console.log('good = ', good)
+        }
+
+        // xet ham Cheap
+        // re va khong re
+        // neu Cheap thi max = 5
+        // neu re thi ngon va nhanh max = 0
+        // Ngoai ra khong re thi max = 0
+        // in ra valua = 0
+        function changeCheap() {
+            cheap = !cheap
+            if (cheap) {
+                document.getElementById('cheap').value = 5;
+                if (good && fast) {
+                    document.getElementById('good').value = 0;
+                    good = false;
+                }
+            } else {
+                document.getElementById('cheap').value = 0
+            }
+            console.log('cheap = ', cheap)
+            // xet ham Fast
+            // Nhanh va khoong nhanh
+            // nhanh khi max = 5
+            // nhanh khi ngon va re bang max = 0
+            // Ngoai ra khoong nhanh thi max = = 0
+            // in ra valua = 0
+        }
+        function changeFast() {
+            fast = !fast
+            console.log('fasst --> ', fast)
+            if (fast) {
+                document.getElementById('fast').value = 5;
+                if (good && cheap) {
+                    document.getElementById('good').value = 0;
+                    good = false;
+                }
+            } else {
+                document.getElementById('fast').value = 0
+            }
+            console.log('good = ', fast)
+        }
+    </script>
+
+
+</body>
+
+</html>

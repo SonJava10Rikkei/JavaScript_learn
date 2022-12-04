@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+
+        // let person = {
+        //     name: ['Bob', 'Smith'],
+        //     age: 32,
+        //     gender: 'male',
+        //     interests: ['music', 'skiing'],
+        //     bio: function () {
+        //         alert(this.name[0] + ' ' + this.name[1] + ' is ' + this.age + ' years old.He likes ' + this.interests[0] + ' and ' + this.interests[1] +
+        //             '.');
+        //     },
+        //     greeting: function () {
+        //         alert('Hi! I\'m ' + this.name[0] + '.');
+        //     }
+        // };
+        // // person.bio();
+        // person.greeting();
+        // -------------------------------------------------------------------------
+        // khai bao doi tuong
+        // let person = {
+        //     //cac thanh phan gia tri trong doi duong
+        //     name: {
+        //         first: 'Bob',
+        //         last: 'Smith'
+        //     },
+        //     age: 32,
+        //     gender: 'male',
+        //     interests: ['music', 'skiing'],
+
+        //     bio: function () {
+        //         // thay doi dau cham thanh ngoang []
+        //         alert(this.name.first + ' ' + this.name['last'] + ' is ' + this.age + ' years old.He likes ' + this.interests[0] + ' and ' + this.interests[1] +
+        //             '.');
+        //     },
+        //     greeting: function () {
+        //         alert('Hi! I\'m ' + this.name['first'] + '.');
+        //     }
+        // };
+        // // Thiết lập các thành phần của đối tượng
+        // person.age = 45;
+        // person['name']['last'] = 'Cratchit';
+        // person.bio();
+        // person.greeting();
+
+        // // thiet lap cac thanh phan cho doi tuong (gia tri) + tao ra cac thanh phan moi trong doi tuong
+        // person['eyes'] = 'hazel';
+        // person.farewell = function () { alert("Bye everybody!"); }
+
+        // person['eyes']    // kiem tra thanh phan moi.
+        // person.farewell();
+
+        // let myDataName = 'height'; //Chúng ta có thể thêm thành phần mới này với tên và giá trị cho đối tượng person
+        // let myDataValue = '1.75m';
+        // person[myDataName] = myDataValue;
+
+        // console.log(person.height);
+        // ----------------------------------------------------------------------------------------------------
+
+        //Hãy quan sát những gì được mô tả ở trên với hai đối tượng người
+
+        // let person1 = {
+        //     name: 'Chris',
+        //     greeting: function () {
+        //         alert('Hi! I\'m ' + this.name + '.');
+        //     }
+        // }
+        // let person2 = {
+        //     name: 'Brian',
+        //     greeting: function () {
+        //         alert('Hi! I\'m ' + this.name + '.');
+        //     }
+        // }
+
+        // person1.greeting() //goi in ra method
+        // person2.greeting()
+
+
+        // Khai báo lớp Apple với các thuộc tính type, color, phương thức
+        // getAppleInfo()
+        function Apple(type) {
+            this.type = type;
+            this.color = "red";
+            this.getInfo = getAppleInfo;
+        }
+        // Khai báo hàm getAppleInfo()
+        // Khuyến nghị: đây là cách không nên dùng, đọc tiếp sẽ rõ
+        function getAppleInfo() {
+            return this.color + ' ' + this.type + ' apple';
+        }
+        let apple = new Apple('macintosh');
+        apple.color = "reddish";
+        alert(apple.getInfo());
+
+
+
+
+
+
+    </script>
+
+</body>
+
+</html>

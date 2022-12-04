@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BaiTap1</title>
+</head>
+
+<body>
+
+    <canvas style="border: 1px solid #333;" width="300px" height="150px" id="canvas_rectangle"></canvas>
+
+    <script>
+        function rectangle(width, height) {
+            this.width = width,
+                this.height = height,
+                this.area = function getArea() {
+                    return this.width * this.height;
+                };
+            this.perimetter = function getPerimetter() {
+                return (this.width + this.height) * 2;
+
+            };
+            this.canvasB1 = function getCanvasB1() {
+                let cvRec = document.getElementById("canvas_rectangle");
+                let ctxRec = cvRec.getContext("2d");
+                ctxRec.fillStyle = "red";
+                ctxRec.fillRect(0, 0, this.width, this.height);
+            };
+
+        }
+        let rec = new rectangle(99, 89);
+        console.log(rec.area());
+        console.log(rec.perimetter());
+
+        rec.width = 130;
+        rec.height = 100;
+        rec.canvasB1();
+        //5. In ra
+        console.log("Dien tich sau khi thay doi", rec.area());
+        console.log("Chu vi sau khi thay dooi", rec.perimetter());
+
+
+    </script>
+</body>
+
+</html>

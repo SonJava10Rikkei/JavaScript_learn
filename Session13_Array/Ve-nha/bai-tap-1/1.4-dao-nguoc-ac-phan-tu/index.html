@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đảo ngược</title>
+</head>
+
+<body>
+    <script>
+        let dodai = parseInt(prompt("Nhap do dai cua mang"));
+
+        let tenNumber = new Array(dodai);
+        for (var i = 0; i < tenNumber.length; i++) {
+            tenNumber[i] = prompt("Nhap phan tu cua mang tai vi tri " + i);
+        }
+        let new_Array = tenNumber.reverse();
+        document.write('Thứ sau khi đổi vị trí là ' + new_Array);
+    </script>
+</body>
+
+</html>
