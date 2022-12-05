@@ -57,19 +57,29 @@
 
     <h1> Register </h1>
     <div class="container">
+
         <label for="email"> email</label> <br>
         <input type="text" id="email"> <br>
         <div class="error-email " id="errorEmail" style="display:none "> error</div>
+
+
         <div class="form-password">
             <label for="password"> password</label> <br>
             <input type="password" id="password">
             <i onclick="showPassword()" id="showPassword" class="fa-solid fa-eye-slash "></i>
         </div>
         <div class="error-password" style="display:none"> error</div>
+
+
+
         <label for="confirmPassword"> confirmPassword </label> <br>
         <input type="password" id="confirmPassword"> <br>
         <div class="error-confirmPassword" style="display:none "> error</div>
+
+
         <button onclick="register()"> Register</button>
+
+
         <p> bạn đã có tài khoản rồi ? <span id="redirectRegister" onclick="redirectLogin()" style="color: red ;"> login
             </span></p>
     </div>
