@@ -3,9 +3,9 @@ function register() {
     let email = document.getElementById('email').value;
     let password = document.getElementById('password').value;
     let confirmpassword = document.getElementById('confirmpassword').value;
-    if(email == "") {
+    if (email == "") {
         let errorEmail = document.getElementById('errorEmail');
-       errorEmail.style.display = "block";
+        errorEmail.style.display = "block";
     } else {
         errorEmail.style.display = "none";
     }
@@ -16,7 +16,7 @@ function register() {
     }
     //push vào array trống 
     listUser.push(obj);
-    console.log(listUser); 
+    console.log(listUser);
     // lưu trên local
     localStorage.setItem("listUser", JSON.stringify(listUser)) // từ object chuyển sang dạng array
     //lấy về : 
@@ -33,10 +33,10 @@ function showPass() {
     showPass.classList.toggle('fa-eye');
     let showPassword = document.getElementById('password');
     let result = showPassword.getAttribute("type");
-    if(result == "password") {
-        showPassword.setAttribute("type","text");
+    if (result == "password") {
+        showPassword.setAttribute("type", "text");
     } else {
-        showPassword.setAttribute("type" , "password");
+        showPassword.setAttribute("type", "password");
     }
 }
 
