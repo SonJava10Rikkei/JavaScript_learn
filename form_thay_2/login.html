@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        integrity="sha512-MV7K8+y+gLIBoVD59lQIYicR65iaqukzvf/nwasF0nqhPay5w/9lJmVM2hMDcnK1OnMGCdVK+iQrJ7lzPJQd1w=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    h1 {
+        display: block;
+        margin: 0 auto;
+        text-align: center;
+    }
+
+    .container {
+        width: 300px;
+        height: 300px;
+        border: 1px solid black;
+        margin: 0 auto;
+    }
+
+    .error-email {
+        color: red
+    }
+
+    .error-password {
+        color: red;
+    }
+
+    .error-confirmPassword {
+        color: red;
+    }
+
+    .form-password {
+        position: relative;
+    }
+
+    .fa-eye-slash {
+        position: absolute;
+        right: 140px;
+    }
+</style>
+
+<body>
+    <!--  register -->
+    <h1> Login </h1>
+    <div class="container">
+        <label for="email"> email</label> <br>
+        <input type="text" id="email"> <br>
+        <div class="error-email " id="errorEmail" style="display:none "> error</div>
+        <div class="form-password">
+            <label for="password"> password</label> <br>
+            <input type="password" id="password">
+            <i onclick="showPassword()" id="showPassword" class="fa-solid fa-eye-slash "></i>
+        </div>
+        <div class="error-password" style="display:none"> error</div>
+
+        <button onclick="register()"> Register</button>
+        <p> bạn chưa có tài khoản? <span id="redirectRegister" onclick="redirectRegister()" style="color: red ;">
+                register
+            </span></p>
+    </div>
+    <script>
+        function redirectRegister() {
+            location.href = "register.html" // chuyển trang đăng nhập!
+        }
+        let listUser = [];
+        function register() {
+            console.log("1111");
+            let email = document.getElementById("email").value;
+            let password = document.getElementById("password").value;
+            let confirmPassword = document.getElementById("confirmPassword").value;
+            if (email == "") {
+                let errorEmail = document.getElementById("errorEmail")
+                    .style.display = "block";
+            } else {
+                document.getElementById("errorEmail")
+                    .style.display = "none";
+            }
+            let obj = {
+                email: email,
+                password: password,
+            }
+
+            listUser.push(obj);
+            console.log(listUser, "11111111");
+            //  lưu trên localstorage
+            localStorage.setItem("listUser", JSON.stringify(listUser));
+            // lấy về :
+            let getListUser = localStorage.getItem("listUser");
+            console.log("1111111", getListUser);
+            let check = JSON.parse(getListUser);
+            console.log(check);
+        }
+        function showPassword() {
+            let showPass = document.getElementById("showPassword");
+            showPass.classList.toggle("fa-eye");
+            let showPassword = document.getElementById("password");
+            let result = showPassword.getAttribute("type");
+            // if(result =="password"){
+            //     showPassword.setAttribute("type","text");
+            // }else{
+            //       showPassword.setAttribute("type", "password");
+            // }
+            result == "password" ? showPassword.setAttribute("type", "text")
+                : showPassword.setAttribute("type", "password");
+        }
+    </script>
+</body>
+
+</html>
