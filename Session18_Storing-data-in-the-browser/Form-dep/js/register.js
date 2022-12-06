@@ -4,10 +4,8 @@ let eye = document.querySelector("#eye");
 eye.addEventListener("click", function () {
     let typeInput = password.getAttribute("type") === "password" ? "text" : "password";
     password.setAttribute("type", typeInput);
-
     this.classList.toggle("fa-eye");
 })
-
 let password2 = document.querySelector("#Ippassword2");
 let eye2 = document.querySelector("#eye2");
 
