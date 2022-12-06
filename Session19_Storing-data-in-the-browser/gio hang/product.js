@@ -1,61 +1,107 @@
-let listProduct = [
-    {
-        name: " I phone 5",
-        price: " 3000000",
-        image: "img/anh1.jfif",
-        id: "1",
-    },
-    {
-        name: " I phone 6",
-        price: " 3000000",
-        image: "img/anh2.jfif",
-        id: "2",
-    },
-    {
-        name: " I phone 7",
-        price: " 3000000",
-        image: "img/anh3.jfif",
-        id: "3",
-    },
-    {
-        name: " I phone 8",
-        price: " 3000000",
-        image: "img/anh4.jfif",
-        id: "4",
-    },
-    {
-        name: " I phone 10",
-        price: " 3000000",
-        image: "img/anh5.jfif",
-        id: "5",
-    },
+// let listProducts = [
+//     {
+//         name: " I phone 5",
+//         price: " 3000000",
+//         image: "img/anh1.jfif",
+//         id: "1",
+//     },
+//     {
+//         name: " I phone 6",
+//         price: " 2000000",
+//         image: "img/anh2.jfif",
+//         id: "2",
+//     },
+//     {
+//         name: " I phone 7",
+//         price: " 3000000",
+//         image: "img/anh3.jfif",
+//         id: "3",
+//     },
+//     {
+//         name: " I phone 8",
+//         price: " 3000000",
+//         image: "img/anh4.jfif",
+//         id: "4",
+//     },
+//     {
+//         name: " I phone 10",
+//         price: " 3000000",
+//         image: "img/anh5.jfif",
+//         id: "5",
+//     },
 
-]
-function renderProduct(product) {
+// ]
+
+// localStorage.setItem("listProductsInlocal", JSON.stringify(listProducts));
+
+function renderListProducts() {
     let data = "";
-    for (let i = 0; i < product.length; i++) {
+    let listProductCuaLocal = JSON.parse(localStorage.getItem("listProductsInlocal"));
+
+    for (let i = 0; i < listProductCuaLocal.length; i++) {
+        // đổ vào data
         data += `
          <div class="product">
-            <img src="${product[i].image}" alt="">
-            <p>${product[i].name}</p>
-            <label for="price">${product[i].price}</label><br>
+            <img src="${listProductCuaLocal[i].image}" alt="">    
+            <p>${listProductCuaLocal[i].name}</p>
+            <label for="price">${listProductCuaLocal[i].price}</label><br>
             <input type="number" value="1"><br>
             <div>
             <input type="number" value="1">
-            <i onclick = addToCart(${product[i].id}) 
+            <i onclick = addToCart(${listProductCuaLocal[i].id}) 
             class="fa-solid fa-cart-shopping" ></i>
             </div>
         </div>
         `
     }
-    document.getElementById("showProduct").innerHTML = data;
+    document.getElementById("showProduct").innerHTML = data; // in ra
 }
-renderProduct(listProduct);
+renderListProducts();
 
-//function add to cart
+// function add to cart
 
 function addToCart(id) {
-    
+
+    let listProducts = JSON.parse(localStorage.getItem("listProductsInlocal"));
+
+    // Gọi giỏ hàng của mình
+    let listProductCart = localStorage.getItem("listProductCart");
+
+    if (listProductCart == null) {
+        listProductCart = [];
+        for (let i = 0; i < listProducts.length; i++) {
+            if (listProducts[i].id == id) {
+                listProductCart.push(listProducts[i]);
+                localStorage.setItem("listProductCart", JSON.stringify(listProductCart));
+                break;
+            }
+        }
+
+    } else {
+
+
+        let listProductAddCart = JSON.parse(listProductCart);
+        for (let i = 0; i < listProducts.length; i++) {
+            let flag = false;
+            if (listProducts[i].id == id) {
+                for (let j = 0; j < listProductAddCart.length; j++) {
+                    if (listProductAddCart[j].id == id) {
+                        flag = true;
+                        break;
+                    } else {
+                        flag = false;
+                    }
+                }
+                if (flag == true) {
+                    alert("San pham da co trong gio hang")
+                    console.log("San pham da co trong gio hang");
+                } else {
+                    listProductAddCart.push(listProducts[i]);
+                    localStorage.setItem("listProductCart", JSON.stringify(listProductAddCart));
+                }
+            }
+        }
+    }
 }
 
 
