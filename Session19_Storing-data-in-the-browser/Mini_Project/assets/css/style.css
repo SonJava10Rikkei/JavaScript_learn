@@ -6,19 +6,18 @@
   font-family: Neue Kabel, sans-serif;
   font-size: 16px;
 }
+
 header {
-  position: fixed;
-  height: 150px;
-  width: 100%;
+  
 }
 .c-layout {
-  background-color: rgb(234, 236, 236);
+  background-color: rgb(210, 214, 214);
   height: 2000px;
 }
 
 .container-header {
   /* background-color: rgba(14, 119, 224, 0.377); */
-  /* background-image: url(/Mini_Project/assets/img/header_bg_top.jpg); */
+  background-image: url(/Session19_Storing-data-in-the-browser/Mini_Project/assets/img/header_bg_top_right.jpg);
   display: flex;
   height: 50px;
   text-align: center;
@@ -28,6 +27,7 @@ header {
   align-items: center;
   background-color: #00aeef;
   display: flex;
+  width: 100%;
   height: 100%;
   justify-content: flex-start;
   text-decoration: none;
@@ -55,7 +55,8 @@ header {
   white-space: nowrap;
 }
 .t-header_contactRight_element {
-  background-color: #bab9ba;
+  
+  /* background-color: #bab9ba; */
   display: flex;
   align-items: center;
   flex-grow: 1;
