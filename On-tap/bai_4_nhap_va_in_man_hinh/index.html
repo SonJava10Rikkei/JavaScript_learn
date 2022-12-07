@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>bai_4_nhap_va_in_man_hinh</title>
+</head>
+
+<body>
+
+    <p>Student ID: <span id="id"></span></p>
+    <p>Student Name: <span id="name"></span></p>
+    <p>Age: <span id="age"></span></p>
+    <p>Gender: <span id="gender"></span></p>
+    <p>Email: <span id="email"></span></p>
+    <p>Phone: <span id="phoneNum"></span></p>
+    <p>Address: <span id="address"></span></p>
+    <button onclick="inforStudent_btn()">An de nhap thong tin sinh vien</button>
+
+    <script>
+
+        function inforStudent_btn() {
+            let id = prompt("Nhap id sinh vien");
+            document.getElementById("id").innerHTML = id;
+            let name = prompt("Nhap id sinh vien");
+            document.getElementById("name").innerHTML = name;
+            let age = prompt("Nhap id sinh vien");
+            document.getElementById("age").innerHTML = age;
+
+        }
+
+    </script>
+</body>
+
+</html>
