@@ -42,7 +42,7 @@
 
 ///////       Các method làm việc với Array       ///////
 
-let listNumbers = [1, 2, 3, 4, 5, 6, 7];
+// let listNumbers = [1, 2, 3, 4, 5, 6, 7];
 
 ///////      method : fillter        ///////
 // lọc lọc chỉ lấy giá trị đủ kiều kiện//
@@ -94,8 +94,22 @@ let listNumbers = [1, 2, 3, 4, 5, 6, 7];
 // })
 
 ////////  Tính tổng các phần tử trong hàm ////////
-let sum = 0;
-listNumbers.forEach((value, index, array) => {
-  sum += value;
-});
-console.log("sum", sum);
+// let sum = 0;
+// listNumbers.forEach((value, index, array) => {
+//   sum += value;
+// });
+// console.log("sum", sum);
+
+
+///////      method : callBack      ///////
+// callBack hàm đucợ truyền vào làm tham số của hàm khác//
+
+// ví dụ:
+
+function hello(callBack) {
+  console.log(callBack);
+}
+hello(test)
+function test() {
+  console.log("Hello học viện Java10");
+}
