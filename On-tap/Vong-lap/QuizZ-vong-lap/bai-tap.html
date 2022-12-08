@@ -78,16 +78,39 @@
 
 
 
-        ///////////     bai 6   ///////////
 
-        let numb = parseInt(prompt('nhập số'));
-        let total = 0;
-        for (let i = 1; i <= num; i++) {
-            if (num % i == 0) {
+        ///////////     bai 5   ///////////
 
+        let numberCheck = parseInt(prompt("nhap so"));
+        for (let j = 2; j < numberCheck; j++) {
+            if (checkPrime(j) == true) {
+                console.log("số nguyên tố là ", j);
             }
         }
+        function checkPrime(numberCheckTest) {
+            let flag = true;
+            for (let i = 2; i < numberCheckTest; i++) {
+                if (numberCheckTest % i == 0) {
+                    flag = false;
+                    return flag;
+                } else {
+                    flag = true;
+                }
+            }
+            return flag;
+        }
+        // console.log(checkPrime(numberCheck));
 
+        
+        ///////////     bai 6   ///////////
+
+        // let numb = parseInt(prompt('nhập số'));
+        // let total = 0;
+        // for (let i = 1; i <= num; i++) {
+        //     if (num % i == 0) {
+
+        //     }
+        // }
 
 
     </script>
