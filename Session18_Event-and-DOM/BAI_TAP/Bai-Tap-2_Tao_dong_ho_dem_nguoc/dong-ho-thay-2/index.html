@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* .container {} */
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <span>hours</span>
+        <span id="hours">2</span>
+        <span>minutes</span>
+        <span id="minutes">3</span>
+        <span>seconds</span>
+        <span id="seconds">4</span>
+    </div>
+</body>
+
+<script>
+
+    let seconds = document.getElementById("seconds").innerHTML;
+    let resultSeconds = function countDown() {
+        seconds--;
+        document.getElementById("seconds").innerHTML = seconds;
+
+        if (seconds == 0) {
+            seconds = 4;   // o day la 59
+            setTimeout(() => {
+                let minutes = document.getElementById('minutes').innerHTML;
+                minutes--;
+                document.getElementById('minutes').innerHTML = minutes;
+                if (minutes == 0) {
+                    document.getElementById('minutes').innerHTML = 3; // o day la 59
+
+                    setTimeout(() => {
+                        let hours = document.getElementById('hours').innerHTML;
+                        hours--;
+                        document.getElementById('hours').innerHTML = hours;
+
+                    }, 100)
+                }
+
+            }, 1000)
+
+        }
+    }
+    setInterval(resultSeconds, 100)
+
+</script>
+
+
+</html>

@@ -1,54 +1,56 @@
 // let listProducts = [
 //     {
-//         name: " I phone 5",
+//         name: "I phone 5",
 //         price: " 3000000",
 //         image: "img/anh1.jfif",
 //         id: "1",
 //     },
 //     {
-//         name: " I phone 6",
+//         name: "I phone 6",
 //         price: " 2000000",
 //         image: "img/anh2.jfif",
 //         id: "2",
 //     },
 //     {
-//         name: " I phone 7",
+//         name: "I phone 7",
 //         price: " 3000000",
 //         image: "img/anh3.jfif",
 //         id: "3",
 //     },
 //     {
-//         name: " I phone 8",
+//         name: "I phone 8",
 //         price: " 3000000",
 //         image: "img/anh4.jfif",
 //         id: "4",
 //     },
 //     {
-//         name: " I phone 10",
+//         name: "I phone 10",
 //         price: " 3000000",
-//         image: "img/anh5.jfif",
+//         image: "img/anh1.jfif",
 //         id: "5",
 //     },
 
 // ]
-
 // localStorage.setItem("listProductsInlocal", JSON.stringify(listProducts));
 
-function renderListProducts() {
-    let data = "";
     let listProductCuaLocal = JSON.parse(localStorage.getItem("listProductsInlocal"));
 
-    for (let i = 0; i < listProductCuaLocal.length; i++) {
+
+function renderListProducts(all) {
+    let data = "";
+    // let listProductCuaLocal = JSON.parse(localStorage.getItem("listProductsInlocal"));
+
+    for (let i = 0; i < all.length; i++) {
         // đổ vào data
         data += `
          <div class="product">
-            <img src="${listProductCuaLocal[i].image}" alt="">    
-            <p>${listProductCuaLocal[i].name}</p>
-            <label for="price">${listProductCuaLocal[i].price}</label><br>
+            <img src="${all[i].image}" alt="">    
+            <p>${all[i].name}</p>
+            <label for="price">${all[i].price}</label><br>
             <input type="number" value="1"><br>
             <div>
             <input type="number" value="1">
-            <i onclick = addToCart(${listProductCuaLocal[i].id}) 
+            <i onclick = addToCart(${all[i].id}) 
             class="fa-solid fa-cart-shopping" ></i>
             </div>
         </div>
@@ -56,7 +58,7 @@ function renderListProducts() {
     }
     document.getElementById("showProduct").innerHTML = data; // in ra
 }
-renderListProducts();
+renderListProducts(listProductCuaLocal);
 
 // function add to cart
 
@@ -103,6 +105,59 @@ function addToCart(id) {
         }
     }
 }
+
+
+function timKiemSP() {
+    let listRender = [];
+    let valueInput = document.getElementById("inPutSearch").value.toUpperCase();
+
+    for (let i = 0; i < listProductCuaLocal.length; i++) {
+        if (listProductCuaLocal[i].name.toUpperCase().indexOf(valueInput) != -1) {
+            console.log('11112');
+            
+            listRender.push(listProductCuaLocal[i])
+        }
+    }
+
+    renderListProducts(listRender);
+
+}
+
+// function timKiemSP() {
+//     let timKiemIphone = document.getElementById("inPutSearch").value;
+//     // console.log(timKiemIphone.value);
+//     let data = '';
+//     for (let i = 0; i < listProductCuaLocal.length; i++) {
+//         if (listProductCuaLocal[i].name.indexOf(timKiemIphone) != -1) {
+//             console.log('a');
+//         data += `
+//          <div class="product">
+//             <img src="${listProductCuaLocal[i].image}" alt="">    
+//             <p>${listProductCuaLocal[i].name}</p>
+//             <label for="price">${listProductCuaLocal[i].price}</label><br>
+//             <input type="number" value="1"><br>
+//             <div>
+//             <input type="number" value="1">
+//             <i onclick = addToCart(${listProductCuaLocal[i].id}) 
+//             class="fa-solid fa-cart-shopping" ></i>
+//             </div>
+//         </div>
+//         `
+
+//         }
+//     }
+// document.getElementById("timKiemIphone").innerHTML="data";
+
+// }
+
+
+
+
+
+
+
+
+
 
 
 
