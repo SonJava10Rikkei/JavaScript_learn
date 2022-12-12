@@ -18,7 +18,7 @@
         <span>minutes</span>
         <span id="minutes">3</span>
         <span>seconds</span>
-        <span id="seconds">4</span>
+        <span id="seconds">6</span>
     </div>
 </body>
 
@@ -30,7 +30,7 @@
         document.getElementById("seconds").innerHTML = seconds;
 
         if (seconds == 0) {
-            seconds = 4;   // o day la 59
+            seconds = 6;   // o day la 59
             setTimeout(() => {
                 let minutes = document.getElementById('minutes').innerHTML;
                 minutes--;
@@ -50,7 +50,7 @@
 
         }
     }
-    setInterval(resultSeconds, 100)
+    setInterval(resultSeconds, 500)
 
 </script>
 
