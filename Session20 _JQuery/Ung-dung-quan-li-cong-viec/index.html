@@ -65,11 +65,11 @@
                 <td>${i + 1}</td>
                 <td>${listData[i]}</td>
                 <td>In progress</td>
-                <td><button id="edit">EDIT</button></td>
-<td><button id="delete" class=delete onclick="deleteItem(${i})">DELETE</button></td>
+                <td><button id="edit" class=edit onclick="editItem(${i})">EDIT</button></td>
+                <td><button id="delete" class=delete onclick="deleteItem(${i})">DELETE</button></td>
                 <td><button id="finished">FINISHED</button> </td>
                 </tr>
-        `;
+                `;
             }
             document.getElementById("tbody").innerHTML = data;
         }
@@ -95,10 +95,14 @@
             dataDelete.splice(id, 1);
             localStorage.setItem("listDataToDo", JSON.stringify(dataDelete));
             renderListTodo(dataDelete);
-
+        }
+        function editItem(id) {
+            let dataEdit = JSON.parse(localStorage.getItem("listDataToDo"))
+            document.getElementById('valueInput').value = dataEdit[id];
+            document.getElementById("save").innerHTML = "EDIT";
 
         }
-
+        // editItem();
     </script>
 </body>
 
