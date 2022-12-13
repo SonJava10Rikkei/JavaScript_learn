@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #hocVien {
+            width: 100px;
+            height: 100px;
+            background-color: rgba(165, 42, 42, 0.589);
+            text-align: center;
+        }
+
+        .add-class-dom {
+            background-color: blue !important;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="hocVien">
+        Hello anh em!
+    </div>
+    <button id="click" onclick="hideDiv()">Click DOM JS</button>
+    <button id="clickJquery">Click jQuery</button> <br> <br>
+    <button id="mulBtn">Button</button> <br> <br>
+
+    <form id=" form" action="">
+        <label for="">UseName</label>
+
+        <input id="usename" type="text"> <br> <br>
+
+        <label for="">Password</label>
+
+        <input type="text">
+        <button type="submit">Click</button>
+    </form>
+
+</body>
+<script src="./jquery-3.6.1.js"></script>
+<script>
+    ////////////////   Sự kiện blur   ///////////////
+    // $('input').blur(function () {
+    //     $("#usename").val(5)
+    // })
+
+    ////////////////   Sự kiện submit   ///////////////
+    // $('#form').submit(function (e) {
+
+    //     e.preventDefault;
+    //     console.log("Su kien submit")
+    // });
+
+    ////////////////   Sự kiện on .text   ///////////////
+    // trong on có thể chứa nhiều sự kiện khác nhau
+
+    $('#clickJquery').on("click", function () {
+        let result = $("#hocVien").text('Chao moi nguoi!');
+        console.log(result);
+    });
+
+$("#mulBtn").on("click" ,function(){
+
+})                        // 'event','data','function callback'
+
+    // function hideDiv() {
+    //     document.getElementById("hocVien").style.display = 'none';
+    // }
+
+    // $("#click").click(function () {
+    //     $("#hocVien").hide();
+    // })
+
+    // $("button").click(function () {
+    //     $("#hocVien").hide();
+    // })
+
+    // click đóng mở
+    // let count = 0;
+    // jQuery('#click').click(function () {   // thay $ bằng jQuery
+    //     count++;
+    //     $("#hocVien").hide();
+    //     if (count == 2) {
+    //         $("#hocVien").show()
+    //         count = 0
+    //     }
+    // })
+
+    /////////////     Đổi màu     ///////////////
+
+    // function hideDiv() {
+    //     document.getElementById("hocVien").style.backgroundColor = "red";
+
+    // }
+
+    // $("#clickJquery").click(function () {
+    //     $("#hocVien").css('backgroundColor', 'violet')
+    // })
+
+
+    // ///////////////    nhiều Css bằng jQuery  ///////////////
+    // $("#clickJquery").click(function () {
+    //     $("#hocVien").css({ 'backgroundColor': 'violet', 'height': "200px" })
+    // })
+
+
+    /////////////     Thêm      ///////////////
+    // function hideDiv() {
+    //     let result = document.getElementById("hocVien").classList.add("add-class-dom");
+
+    // }
+
+    // $("#clickJquery").click(function () {
+    //     $("#hocVien").addClass("add-class-dom")
+    // })
+
+
+
+
+</script>
+
+</html>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="container">
+        <h1>To Do App</h1>
+        <div class="add-todo">
+            <input id="valueInput" type="text" placeholder="Enter a task here" />
+            <button id="save" onclick="addTodo()">Save</button>
+        </div>
+        <div class="table1">
+            <table cellpadding="4" style="width: 70%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Todo item</th>
+                        <th>Status</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- <tr>
+                <td>1</td>
+                <td>Buy flowers for girlfriend</td>
+                <td>In progress</td>
+                <td><button id="edit">EDIT</button></td>
+                <td><button id="delete" onclick="deleteFunction()">DELETE</button></td>
+                <td><button id="finished">FINISHED</button> </td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Buy movie tickets</td>
+                <td>In progress</td>
+                <td><button id="edit">EDIT</button></td>
+                <td><button id="delete">DELETE</button></td>
+                <td><button id="finished">FINISHED</button> </td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Book a table at the restaurant</td>
+                <td>In progress</td>
+                <td><button id="edit">EDIT</button></td>
+                <td><button id="delete">DELETE</button></td>
+                <td><button id="finished">FINISHED</button> </td>
+            </tr> -->
+                </tbody>
+            </table>
+        </div>
+    </div>
+    <script>
+        let dataListTodo = JSON.parse(localStorage.getItem("listDataToDo"));
+        function renderListTodo(listData) {
+            let data = "";
+            for (let i = 0; i < listData.length; i++) {
+                data += `
+                <tr>
+                <td>${i + 1}</td>
+                <td>${listData[i]}</td>
+                <td>In progress</td>
+                <td><button id="edit">EDIT</button></td>
+<td><button id="delete" class=delete onclick="deleteItem(${i})">DELETE</button></td>
+                <td><button id="finished">FINISHED</button> </td>
+                </tr>
+        `;
+            }
+            document.getElementById("tbody").innerHTML = data;
+        }
+        renderListTodo(dataListTodo);
+        function addTodo() {
+            let valueInput = document.getElementById("valueInput").value;
+            let dataAdd = JSON.parse(localStorage.getItem("listDataToDo"));
+            // console.log("111",dataAdd);
+            if (dataAdd == null) {
+                dataAdd = [];
+                dataAdd.push(valueInput);
+                localStorage.setItem("listDataToDo", JSON.stringify(dataAdd));
+                renderListTodo(dataAdd)
+            } else {
+                dataAdd.push(valueInput);
+                localStorage.setItem("listDataToDo", JSON.stringify(dataAdd));
+                renderListTodo(dataAdd);
+            }
+        }
+        function deleteItem(id) {
+            // console.log("id",id);
+            let dataDelete = JSON.parse(localStorage.getItem("listDataToDo"));
+            dataDelete.splice(id, 1);
+            localStorage.setItem("listDataToDo", JSON.stringify(dataDelete));
+            renderListTodo(dataDelete);
+
+
+        }
+
+    </script>
+</body>
+
+</html>
