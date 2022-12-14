@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+        .container {
+            text-align: center;
+        }
+
+        .table1 {
+            margin-top: 50px;
+            margin-left: 250px;
+        }
+
+        #edit {
+            background-color: orange;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #delete {
+            background-color: rgb(226, 43, 147);
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #finished {
+            background-color: green;
+            color: white;
+            border-radius: 5px;
+            padding: 5px;
+        }
+
+        #save {
+            background-color: blue;
+            color: white;
+        }
+
+        #search {
+            background-color: rgb(202, 229, 93);
+            border-radius: 3px;
+            padding: 4px
+        }
+
+        #valueSearch {
+            width: 300px;
+            height: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>To do App</h1>
+        <div class="add-todo">
+            <input type="text" id="valueInput" placeholder="Enter a task here">
+            <button id=save onclick="addTodo()">Add</button>
+            <button onclick="addEdit()">Edit</button> <br> <br>
+            <input type="text" id="valueSearch">
+            <button id="search" onclick="searchItems()">Search</button>
+        </div>
+        <div class="table1">
+            <table cellpadding="4" style="width: 70%">
+                <thead>
+                    <tr>
+                        <th>No.</th>
+                        <th>Todo item</th>
+                        <th>Status</th>
+                        <th colspan="3">Actions</th>
+                    </tr>
+                </thead>
+                <tbody id="tbody">
+                    <!-- <tr>
+          <td>1</td>
+          <td>mua quần áo</td>
+          <td>In progress</td>
+          <td><button id="edit"  >EDIT</button></td>
+          <td><button id="delete">DELETE</button></td>
+          <td><button id="finished">FINISHED</button></td>
+        </tr> -->
+                </tbody>
+        </div>
+    </div>
+    <script>
+        let key;
+        let dataListTodo = JSON.parse(localStorage.getItem("dataListTodo"));
+        // console.log(dataListTodo);
+        function renderListTodo(listData) {
+            let data = "";
+            for (let i = 0; i < listData.length; i++) {
+                data += `
+       <tr>
+          <td>${i + 1}</td>
+          <td>${listData[i].name}</td>
+          <td>${listData[i].status}</td>
+          <td><button id="edit"onclick="editItem(${i})">EDIT</button></td>
+          <td><button id="delete" onclick="deleteItem(${i})">DELETE</button></td>
+          <td><button id="finished" onclick="finishedItems(${i})">FINISHED</button></td>
+        </tr> 
+      `
+            }
+            document.getElementById("tbody").innerHTML = data;
+        }
+        renderListTodo(dataListTodo);
+
+        function addTodo() {
+            let valueInput = document.getElementById("valueInput").value;
+            let newdata = {
+                name: valueInput,
+                status: "In Progress !"
+            }
+            let addData = JSON.parse(localStorage.getItem("dataListTodo"));
+            if (addData == null) {
+                addData = [];
+                addData.push(newdata);
+                localStorage.setItem("dataListTodo", JSON.stringify(addData));
+                renderListTodo(addData);
+            } else {
+                addData.push(newdata);
+                localStorage.setItem("dataListTodo", JSON.stringify(addData));
+                renderListTodo(addData);
+            }
+
+        }
+
+        function deleteItem(id) {
+            console.log("111");
+            let dataDelete = JSON.parse(localStorage.getItem("dataListTodo"));
+            dataDelete.splice(id, 1);
+            localStorage.setItem("dataListTodo", JSON.stringify(dataDelete));
+            renderListTodo(dataDelete);
+        }
+        function editItem(id) {
+            let dataEdit = JSON.parse(localStorage.getItem("dataListTodo"));
+            document.getElementById("valueInput").value = dataEdit[id].name;
+            console.log(dataEdit[id].name);
+            localStorage.setItem("dataListTodo", JSON.stringify(dataEdit));
+            localStorage.setItem("key", id);
+            renderListTodo(dataEdit);
+        }
+
+        function addEdit() {
+            let dataEdit = JSON.parse(localStorage.getItem("dataListTodo"))
+            let key = localStorage.getItem("key");
+            dataEdit[key].name = document.getElementById("valueInput").value;
+            localStorage.setItem("dataListTodo", JSON.stringify(dataEdit));
+            renderListTodo(dataEdit);
+        }
+
+        function finishedItems(id) {
+            let dataFinished = JSON.parse(localStorage.getItem("dataListTodo"));
+            dataFinished[id].status = (dataFinished[id].status == " Success !") ? " In Progress !" : " Success !"
+            localStorage.setItem("dataListTodo", JSON.stringify(dataFinished));
+            renderListTodo(dataFinished);
+        }
+
+        function searchItems() {
+            let listRender = [];
+            let valueSearch = document.getElementById("valueSearch").value.toLowerCase();
+            for (let i = 0; i < dataListTodo.length; i++) {
+                if (dataListTodo[i].name.toLowerCase().indexOf(valueSearch) != -1) {
+                    listRender.push(dataListTodo[i]);
+                    console.log(listRender);
+                }
+            }
+            renderListTodo(listRender);
+        }
+    </script>
+</body>
+
+</html>

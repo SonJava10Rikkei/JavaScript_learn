@@ -5,104 +5,187 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <title>To Do App</title>
     <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
-    <div class="container">
-        <h1>To Do App</h1>
-        <div class="add-todo">
-            <input id="valueInput" type="text" placeholder="Enter a task here" />
-            <button id="save" onclick="addTodo()">Save</button>
-        </div>
-        <div class="table1">
-            <table cellpadding="4" style="width: 70%">
-                <thead>
-                    <tr>
-                        <th>No.</th>
-                        <th>Todo item</th>
-                        <th>Status</th>
-                        <th colspan="3">Actions</th>
-                    </tr>
-                </thead>
-                <tbody id="tbody">
-                    <!-- <tr>
-                <td>1</td>
-                <td>Buy flowers for girlfriend</td>
-                <td>In progress</td>
-                <td><button id="edit">EDIT</button></td>
-                <td><button id="delete" onclick="deleteFunction()">DELETE</button></td>
-                <td><button id="finished">FINISHED</button> </td>
-            </tr>
-            <tr>
-                <td>2</td>
-                <td>Buy movie tickets</td>
-                <td>In progress</td>
-                <td><button id="edit">EDIT</button></td>
-                <td><button id="delete">DELETE</button></td>
-                <td><button id="finished">FINISHED</button> </td>
-            </tr>
-            <tr>
-                <td>3</td>
-                <td>Book a table at the restaurant</td>
-                <td>In progress</td>
-                <td><button id="edit">EDIT</button></td>
-                <td><button id="delete">DELETE</button></td>
-                <td><button id="finished">FINISHED</button> </td>
-            </tr> -->
-                </tbody>
-            </table>
+    <div id="all_table">
+        <div class="container">
+            <h1>To Do App</h1>
+            <div class="add-todo">
+                <input id="valueInput" type="text" placeholder="Enter a task here" />
+                <button id="save" onclick="addTodo()">Save</button> <br>
+                <input id="inPutSearch" type="text" oninput="timKiemSP()" placeholder="Nhập từ tìm kiếm">
+                <!-- <button id="searchBtn" onclick="timKiemSP()">Search</button> <br> -->
+
+
+            </div>
+            <div class="table1">
+                <table cellpadding="4" style="width: 80%">
+                    <thead>
+                        <tr>
+                            <th>No.</th>
+                            <th>Todo item</th>
+                            <th>Status</th>
+                            <th colspan="3">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tbody">
+                        <!-- <tr>
+                        <td>1</td>
+                        <td>Buy flowers for girlfriend</td>
+                        <td>In progress</td>
+                        <td><button class="btnActions" id="edit">EDIT</button></td>
+                        <td><button class="btnActions" id="delete" onclick="deleteFunction()">DELETE</button></td>
+                        <td><button class="btnActions" id="finished">FINISHED</button> </td>
+                    </tr> -->
+                    </tbody>
+                </table>
+            </div>
         </div>
     </div>
     <script>
-        let dataListTodo = JSON.parse(localStorage.getItem("listDataToDo"));
+        let dataListTodo = JSON.parse(localStorage.getItem("listDataToDos"));
         function renderListTodo(listData) {
             let data = "";
-            for (let i = 0; i < listData.length; i++) {
-                data += `
+            if (dataListTodo == null) {
+                return;
+            } else {
+                for (let i = 0; i < listData.length; i++) {
+                    data += `
                 <tr>
-                <td>${i + 1}</td>
-                <td>${listData[i]}</td>
-                <td>In progress</td>
-                <td><button id="edit" class=edit onclick="editItem(${i})">EDIT</button></td>
-                <td><button id="delete" class=delete onclick="deleteItem(${i})">DELETE</button></td>
-                <td><button id="finished">FINISHED</button> </td>
+                    <td>${i + 1}</td>
+                    <td>${listData[i].name}</td>
+                    <td>${listData[i].statusItem}</td>
+                    <td><button class="btnActions" id="edit" class=edit onclick="editItem(${i})">EDIT</button></td>
+                    <td><button class="btnActions" id="delete" class=delete onclick="deleteItem(${i})">DELETE</button></td>
+                    <td><button class="btnActions" id="finished" class=delete onclick="finishedItem(${i})">FINISHED</button> </td>
                 </tr>
                 `;
+                }
+                document.getElementById("tbody").innerHTML = data;
             }
-            document.getElementById("tbody").innerHTML = data;
         }
         renderListTodo(dataListTodo);
+
+        // them moi 
         function addTodo() {
-            let valueInput = document.getElementById("valueInput").value;
-            let dataAdd = JSON.parse(localStorage.getItem("listDataToDo"));
-            // console.log("111",dataAdd);
+            let valueInput = document.getElementById("valueInput");
+            let dataAdd = JSON.parse(localStorage.getItem("listDataToDos"));
+            let keyId = JSON.parse(localStorage.getItem("keyId"));
+            if (valueInput.value == "") {
+                alert("Can nhap su lieu");
+                return;
+            }
+            if (keyId != null) {
+                dataAdd.splice(keyId, 1, valueInput.value);
+                console.log(dataAdd);
+                localStorage.setItem("listDataToDos", JSON.stringify(dataAdd));
+                localStorage.removeItem("keyId");
+                document.getElementById("save").innerHTML = "SAVE";
+                valueInput.value = "";
+                renderListTodo(dataAdd);
+                return;
+            }
             if (dataAdd == null) {
                 dataAdd = [];
-                dataAdd.push(valueInput);
-                localStorage.setItem("listDataToDo", JSON.stringify(dataAdd));
-                renderListTodo(dataAdd)
+                let obj = {
+                    name: valueInput.value,
+                    statusItem: "In progress",
+                }
+                dataAdd.push(obj);
+                localStorage.setItem("listDataToDos", JSON.stringify(dataAdd));
+                // renderListTodo(dataAdd);
             } else {
-                dataAdd.push(valueInput);
-                localStorage.setItem("listDataToDo", JSON.stringify(dataAdd));
-                renderListTodo(dataAdd);
+                let obj = {
+                    name: valueInput.value,
+                    statusItem: "In progress",
+                }
+                dataAdd.push(obj);
+                localStorage.setItem("listDataToDos", JSON.stringify(dataAdd));
+                // renderListTodo(dataAdd);
             }
-        }
-        function deleteItem(id) {
-            // console.log("id",id);
-            let dataDelete = JSON.parse(localStorage.getItem("listDataToDo"));
-            dataDelete.splice(id, 1);
-            localStorage.setItem("listDataToDo", JSON.stringify(dataDelete));
-            renderListTodo(dataDelete);
-        }
-        function editItem(id) {
-            let dataEdit = JSON.parse(localStorage.getItem("listDataToDo"))
-            document.getElementById('valueInput').value = dataEdit[id];
-            document.getElementById("save").innerHTML = "EDIT";
+            renderListTodo(dataAdd);
 
+            valueInput.value = "";
+        };
+
+
+        // deleteItem //
+        function deleteItem(id) {
+            let dataDelete = JSON.parse(localStorage.getItem("listDataToDos"));
+            dataDelete.splice(id, 1);
+            localStorage.setItem("listDataToDos", JSON.stringify(dataDelete));
+            renderListTodo(dataDelete);
+        };
+        // editItem //
+        // function editItem(id) {
+        //     let dataEdit = JSON.parse(localStorage.getItem("listDataToDos"));
+        //     document.getElementById('valueInput').value = dataEdit[id].name;
+        //     document.getElementById("save").innerHTML = "EDIT";
+        //     // localStorage.setItem("listDataToDos", JSON.stringify(dataEdit));
+        //     localStorage.setItem("keyId", JSON.stringify(id));
+        // };
+        // function addEit(id) {
+        //     dataEdit = JSON.parse(localStorage.getItem("listDataToDos"));
+        //     let key = localStorage.getItem("key");
+        //     dataEdit[key] = document.getElementById("valueInput").value;
+        //     localStorage.setItem("listDataToDos", JSON.stringify(dataEdit));
+        //     renderListTodo(dataEdit);
+        // }
+
+        function editItem(id) {
+            let dataEdit = JSON.parse(localStorage.getItem("listDataToDos"));
+            document.getElementById("valueInput").value = dataEdit[id].name;
+            document.getElementById("save").innerHTML = "EDIT";
+            console.log(dataEdit[id].name);
+            localStorage.setItem("listDataToDos", JSON.stringify(dataEdit));
+            localStorage.setItem("key", id);
+            renderListTodo(dataEdit);
         }
-        // editItem();
+
+        function addEdit() {
+            let dataEdit = JSON.parse(localStorage.getItem("listDataToDos"))
+            let key = localStorage.getItem("key");
+            dataEdit[key].name = document.getElementById("valueInput").value;
+            localStorage.setItem("listDataToDos", JSON.stringify(dataEdit));
+            renderListTodo(dataEdit);
+        }
+        // Enter event //
+        var inputEnter = document.getElementById("valueInput");
+        inputEnter.addEventListener('keypress', function (event) {
+            if (event.key == "Enter") {
+                event.preventDefault();
+                document.getElementById("save").click();
+            }
+        });
+        // finished BTN //
+        let countFinished = 0;
+        function finishedItem(id) {
+            let dateFinished = JSON.parse(localStorage.getItem("listDataToDos"));
+            countFinished++;
+            dateFinished[id].statusItem = "success!";
+
+            if (countFinished == 2) {
+                dateFinished[id].statusItem = "in progress!";
+                countFinished = 0;
+            }
+            localStorage.setItem("listDataToDos", JSON.stringify(dateFinished));
+            renderListTodo(dateFinished);
+        }
+        // search //
+        function timKiemSP() {
+            let listRender = [];
+            let valueInput = document.getElementById("inPutSearch").value.toUpperCase();
+            for (let i = 0; i < dataListTodo.length; i++) {
+                if (dataListTodo[i].name.toUpperCase().indexOf(valueInput) != -1) {
+                    console.log('11112');
+                    listRender.push(dataListTodo[i])
+                }
+            }
+            renderListTodo(listRender);
+        }
     </script>
 </body>
 

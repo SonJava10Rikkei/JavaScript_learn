@@ -1,116 +1,114 @@
-/* *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+ * {
+     margin: 0;
+     padding: 0;
+     box-sizing: border-box;
 
-}
-html{
-    font-size: 16px;
-}
+ }
 
-.all_contents{
-    display: flex;
-    justify-content: center;
+ html {
+     font-size: 16px;
+ }
 
 
-}
-.container{
-    margin-top: 60px;
-    text-align: center;
-    width: 700px;
-    background-color: rgba(231, 229, 229, 0.719);
-    border-radius: 5px;
+ #all_table {
+     /* background-color: #333; */
+     display: flex;
+     justify-content: center;
 
-}
-h1 {
-    margin-top: 15px;
-}
-.topInput{
-    width: 200px;
-    height: 35px;
-    border-radius: 4px;
-}
-.topBtnSave{
-width: 70px;
-height: 35px;
-background-color: rgba(0, 0, 255, 0.719);
-color: aliceblue;
-border-radius: 3px;
-margin-left: 10px;
-}
-
-.mid{
-    background-color: aliceblue;
-}
-
-.tableContent tr th{
-  border-bottom: 2px solid rgb(180, 177, 177);
-  height: 52px;
-}
-.tableContent tr td{
-  border-bottom: 1px solid rgb(180, 177, 177);
-  height: 45px;
-
-}
-
-#edit{
-    width: 70px;
-height: 35px;
-background-color: rgba(238, 255, 0, 0.801);
-color: rgb(8, 8, 8);
-border-radius: 3px;
-margin-left: 12px;
-}
-#elete{
-width: 70px;
-height: 35px;
-background-color: rgba(255, 0, 43, 0.548);
-color: rgb(0, 0, 0);
-border-radius: 3px;
-margin-left: 12px;
-}
-#finished{
-width: 70px;
-height: 35px;
-background-color: rgb(0, 255, 98);
-color: rgb(7, 7, 7);
-border-radius: 3px;
-margin-left: 12px;
-} */
-
+ }
 
  .container {
-            text-align: center;
-            
-        }
+     text-align: center;
+     border: 2px solid #333;
+     background-color: rgba(236, 236, 236, 0.534);
+     width: 900px;
+     margin-top: 50px;
+     border-radius: 3px;
 
-        .table1 {
-            margin-top: 50px;
-            margin-left: 250px;
-        }
+ }
 
-        #edit {
-            background-color: orange;
-            color: white;
-            border-radius: 5px;
-            padding: 5px;
-        }
+ h1 {
+     margin-top: 10px;
+ }
 
-        #delete {
-            background-color: rgb(226, 43, 147);
-            color: white;
-            border-radius: 5px;
-            padding: 5px;
-        }
+ .table1 {
+     display: flex;
+     justify-content: center;
+     margin-top: 10px;
 
-        #finished {
-            background-color: green;
-            color: white;
-            border-radius: 5px;
-            padding: 5px;
-        }
+ }
 
-        #save {
-            background-color: blue;
-            color: white;
-        }
+ .table1 tr th {
+     border-bottom: 2px solid rgb(180, 177, 177);
+     height: 52px;
+ }
+
+ .table1 tr td {
+     border-bottom: 1px solid rgb(180, 177, 177);
+     height: 45px;
+
+ }
+
+ .add-todo {
+
+     margin-top: 10px;
+
+     /* height: 30px; */
+ }
+
+ #valueInput {
+     height: 34px;
+     width: 180px;
+     margin-right: 10px;
+ }
+
+ #inPutSearch {
+     height: 34px;
+     width: 180px;
+     margin-top: 10px;
+     margin-right: 64px;
+ }
+
+
+
+ #save {
+     background-color: blue;
+     color: white;
+     border: 0px;
+     width: 50px;
+     height: 35px;
+     border-radius: 5px;
+ }
+
+ #searchBtn {
+
+     background-color: rgb(255, 0, 106);
+     color: white;
+     border: 0px;
+     width: 50px;
+     height: 35px;
+     border-radius: 5px;
+ }
+
+ .btnActions {
+     border: 0px;
+     padding: 5px;
+     height: 34px;
+     color: white;
+     border-radius: 5px;
+ }
+
+ #edit {
+     background-color: rgb(245, 209, 5);
+
+ }
+
+ #delete {
+     background-color: rgb(238, 49, 156);
+
+ }
+
+ #finished {
+     background-color: rgb(1, 141, 1);
+
+ }
